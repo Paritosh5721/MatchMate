@@ -43,35 +43,37 @@ struct MatchCardView: View {
                 Button {
                     onDecline()
                 } label: {
-                    HStack {
+                    HStack(spacing: 6) {
                         Image(systemName: "xmark")
                         Text("Decline")
                     }
                     .font(.system(size: 15, weight: .medium))
                     .foregroundColor(.red)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
+                    .frame(height: 48)
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
 
-                Divider().frame(height: 44)
+                Divider().frame(height: 48)
 
                 Button {
                     onAccept()
                 } label: {
-                    HStack {
+                    HStack(spacing: 6) {
                         Image(systemName: "checkmark")
                         Text("Accept")
                     }
                     .font(.system(size: 15, weight: .medium))
                     .foregroundColor(.green)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
+                    .frame(height: 48)
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
             }
+            .frame(height: 48)
+
         case .accepted:
             statusBar("Member Accepted", color: .green)
         case .declined:
@@ -84,7 +86,7 @@ struct MatchCardView: View {
             .font(.system(size: 15, weight: .semibold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 12)
+            .frame(height: 48)
             .background(color)
     }
 }

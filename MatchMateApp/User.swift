@@ -34,11 +34,21 @@ struct MatchProfile: Identifiable {
     }
 
     init(user: User, status: MatchStatus = .pending) {
-        id       = user.id
-        name     = user.name
-        city     = user.address.city
-        company  = user.company.name
-        email    = user.email
-        self.status = status
+        self.id      = user.id
+        self.name    = user.name
+        self.city    = user.address.city
+        self.company = user.company.name
+        self.email   = user.email
+        self.status  = status
+    }
+
+    // init from Core Data entity
+    init(entity: UserEntity) {
+        self.id      = Int(entity.id)
+        self.name    = entity.name ?? ""
+        self.city    = entity.city ?? ""
+        self.company = entity.company ?? ""
+        self.email   = entity.email ?? ""
+        self.status  = MatchStatus(rawValue: entity.status ?? "") ?? .pending
     }
 }

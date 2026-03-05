@@ -51,9 +51,7 @@ struct MatchListView: View {
             }
         }
         .listStyle(.plain)
-        .refreshable {
-            vm.load()
-        }
+        .refreshable { vm.load() }
         .background(Color(.systemGroupedBackground))
     }
 
